@@ -1,10 +1,9 @@
-Attribute VB_Name = "MÛdulo1"
+Attribute VB_Name = "M√≥dulo1"
 Public FILA, TITULOY, TITULOX, TITULOGRAF, PUNTOSREF, PATRON, ID, MAGNITUD As String
 Public INSTRUMENTO, FOLIO, UNIDADES, TIPO, NOMQR, REALIZA, INGENIERO, REVISA As String
 Public SEGURIDAD, valor, FECHA_C, ID_TIPO As String
 Public DES_PATRON, UBICACION, FIJO_PATRON As String
 
-'''''''''VersiÛn 5.1.3 _ 20/NOV/24_ (M:\HOJA DE CALCULO\NO TOCAR\C”DIGO\DL) (REDONDEO DE RESULTADOS)
 
 Public graf As Shape
 Public RNg As Range
@@ -33,26 +32,10 @@ Dim lookupvalue As Variant, value As Variant, lookupRange As Range
 
 ''''''''''''''''''''''PERSONAL''''''''''''''''''''''
 
-'INGENIEROS
-'ING. JES⁄S VEL¡ZQUEZ ESPINOZA
-'ING. LEONARDO DANIEL PRIETO PRIETO
-'ING. LEONARDO RODRÕGUEZ ¡LVAREZ
-'ING. EDUARDO VILLALOBOS AGUILAR
-'ING. EDSON EDUARDO L”PEZ REYES
-'ING. MIGUEL ¡NGEL APARICIO HERN¡NDEZ
-'ING. ALAN JOEL CASTILLO GONZ¡LEZ
-'ING.WILLIAMS RIVERA HERNANDEZ
-'ING. JUAN CARLOS ARELLANO BACA
 
-'REVIS”
-'ING. LAURA ITZEL MARTÕNEZ SU¡REZ
-'T.L.Q. JOS… DHASSAEV MONTOYA JU¡REZ
-
-
-
-'''''''''''''''CONTRASE—A'''''''''''
+'''''''''''''''CONTRASE√ëA'''''''''''
 SEGURIDAD = "MET2025"
-''''''''''''''''PESTA—AS'''''''''''''''''
+''''''''''''''''PESTA√ëAS'''''''''''''''''
 P_1 = "DATOS"
 P_2 = "MENU"
 P_3 = "CERTIFICADOS"
@@ -88,40 +71,32 @@ End If
 
 
 
-'LUGAR Y UBICACI”N
+'LUGAR Y UBICACI√ìN
 
 
-'DL M…DICA, GIP, DENTILAB, DLP, PHARMA
+'DETERMINACI√ìN DE FOLIOS #'RAZ√ìN SOCIAL 3 LETRAS' - 'A√ëO'-CONSECUTIVO #
 If RAZ_SOC <> "PRO" Then
 
-    If RAZ_SOC = "DLM" Then
-    REVISA = "T.L.Q. JOS… DHASSAEV MONTOYA JU¡REZ"
+    If RAZ_SOC = "RAZONSOCIAL1" Then
+    REVISA = "NOMBRE REVISA 1"
     
-    ElseIf RAZ_SOC <> "DLM" Then
-    REVISA = "ING. LAURA ITZEL MARTÕNEZ SU¡REZ"
+    ElseIf RAZ_SOC <> "RAZONSOCIAL2" Then
+    REVISA = "NOMBRE REVISA 2"
     End If
     
 
 
 'LUGAR
-'Sheets(P_3).Range("D3").value = "NAVE, ¡REA, EQUIPO,C”DIGO."
+'Sheets(P_3).Range("D3").value = "NAVE, √ÅREA, EQUIPO,C√ìDIGO."
 
-'UBICACI”N
-Sheets(P_3).Range("D4").value = "Febrero de 1917 s/n Zona Industrial de Chalco, " & _
-                                "Chalco Edo. de MÈxico CP 56600, Tel. 597 56060"
-
-' PROFILATEX
-ElseIf RAZ_SOC = "PRO" Then
-'LUGAR
-Sheets(P_3).Range("D3").value
-'UBICACI”N
-Sheets(P_3).Range("D4").value = "PROFILATEX, S.A. DE C.V."
+'UBICACI√ìN
+Sheets(P_3).Range("D4").value = "DIRECCION " & _
 
 End If
 
 
 '''''''''''''''
-'FECHA GENERACI”N
+'FECHA GENERACI√ìN
 
 F_G = Format(Now(), "DD/MMM/YY")
 FECHA_GENERACION = Format(F_G, ">")
@@ -238,7 +213,7 @@ Sheets(P_3).Select
         
     MAGNITUD_CERTIFICADO = "TEMPERATURA"
     PROCEDIMIENTO = "P-MET-02"
-    NORMA = "NOM-008-SCFI-2002" & Chr(10) & "PublicaciÛn TÈcnica: ìTermometrÌa de Resistenciaî CENAM (CNM-MET-PT-009) "
+    NORMA = "NOM-008-SCFI-2002" & Chr(10) & "Publicaci√≥n T√©cnica: ‚ÄúTermometr√≠a de Resistencia‚Äù CENAM (CNM-MET-PT-009) "
     TIPO_E_M = "E.M."
     REPORTE_ERROR = ""
     
@@ -246,9 +221,9 @@ Sheets(P_3).Select
         
     MAGNITUD_CERTIFICADO = "HUMEDAD RELATIVA"
     PROCEDIMIENTO = "P-MET-04"
-    NORMA = "PublicaciÛn TÈcnica: ìCNM-MET-PT-010 Mediciones de Humedad 1997" & Chr(10) & "GuÌa TÈcnica sobre VerificaciÛn de HigrÛmetros"
+    NORMA = "Publicaci√≥n T√©cnica: ‚ÄúCNM-MET-PT-010 Mediciones de Humedad 1997" & Chr(10) & "Gu√≠a T√©cnica sobre Verificaci√≥n de Higr√≥metros"
     TIPO_E_M = "E.M.R."
-    REPORTE_ERROR = "El instrumento tiene un error m·ximo relativo de:  *W5 *ZV2"
+    REPORTE_ERROR = "El instrumento tiene un error m√°ximo relativo de:  *W5 *ZV2"
     
     End If
     ''''''''''''''''''''''
@@ -266,7 +241,7 @@ TIPO = ActiveSheet.Cells(FILA, 3)
 M_I = 0
 MAGNITUD_INSTRUMENTO = Sheets(P_1).Cells(2, 24).Offset(M_I, 0)
 
-If MAGNITUD = "PRESI”N" Or MAGNITUD = "PRESION" Then
+If MAGNITUD = "PRESI√ìN" Or MAGNITUD = "PRESION" Then
     If UNIDADES = "Mpa" Or UNIDADES = "mpa" Or UNIDADES = "MPA" Then
     MsgBox ("Unidades ingresadas incorrectamente, se modificara por MPa")
     UNIDADES = "MPa"
@@ -282,9 +257,9 @@ M_I = 1
 
 '''''''''''''''SERVICIO
 SERV = ActiveSheet.Cells(FILA, 196)
-If SERV = "CALIBRACI”N" Then
+If SERV = "CALIBRACI√ìN" Then
     SERV_CERT = "CC."
-ElseIf SERV = "VERIFICACI”N" Then
+ElseIf SERV = "VERIFICACI√ìN" Then
     SERV_CERT = "CV."
 End If
 '''''''''''''''
@@ -344,7 +319,7 @@ On Error GoTo PLANTILLA
         'objWord.documents.Open (patharch)
         Set Wordoc = objWord.documents.Open(patharch)
     
-       ElseIf valor = "N5-11-CT-002 BA—ORTD" Then               'Certificado antes 1∞ baÒo seco N5-11-CT-002 BA—ORTD
+       ElseIf valor = "N5-11-CT-002 BA√ëORTD" Then               'Certificado antes 1¬∞ ba√±o seco N5-11-CT-002 BA√ëORTD
   
            patharch = ThisWorkbook.Path & "\CERTIFICADO N5-11-CT-002.dotx"
            Set objWord = CreateObject("Word.Application")
@@ -353,7 +328,7 @@ On Error GoTo PLANTILLA
             
             Set Wordoc = objWord.documents.Open(patharch)
           
-       ElseIf valor = "N5-11-CT-005 FLUKEPOZOSECO" Then               'Certificado antes 1∞ baÒo seco NN5-11-CT-005 FLUKEPOZOSECO
+       ElseIf valor = "N5-11-CT-005 FLUKEPOZOSECO" Then               'Certificado antes 1¬∞ ba√±o seco NN5-11-CT-005 FLUKEPOZOSECO
            
            patharch = ThisWorkbook.Path & "\CERTIFICADO N5-11-CT-005.dotx"
            Set objWord = CreateObject("Word.Application")
@@ -380,7 +355,7 @@ On Error GoTo PLANTILLA
             
             Set Wordoc = objWord.documents.Open(patharch)
    
-       ElseIf valor = "N5-11-CT-003 BA—ORTD" Then               'Certificado antes 1∞ baÒo seco N5-11-CT-003 BA—ORTD
+       ElseIf valor = "N5-11-CT-003 BA√ëORTD" Then               'Certificado antes 1¬∞ ba√±o seco N5-11-CT-003 BA√ëORTD
                     
            patharch = ThisWorkbook.Path & "\CERTIFICADO N5-11-CT-003.dotx"
            Set objWord = CreateObject("Word.Application")
@@ -447,7 +422,7 @@ On Error GoTo PLANTILLA
                         
                         Set Wordoc = objWord.documents.Open(patharch)
                     
-        ElseIf valor = "N5-11-IP-003 WIKAAP" Then           'Certificado P_WIKA ALTA PRESI”N
+        ElseIf valor = "N5-11-IP-003 WIKAAP" Then           'Certificado P_WIKA ALTA PRESI√ìN
                                        
                             patharch = ThisWorkbook.Path & "\CERTIFICADO N5-11-IP-003.dotx"
                             Set objWord = CreateObject("Word.Application")
@@ -456,7 +431,7 @@ On Error GoTo PLANTILLA
                             
                             Set Wordoc = objWord.documents.Open(patharch)
                       
-    ElseIf valor = "N5-11-IP-006 WIKAMP" Then           'Certificado P_WIKA MEDIA PRESI”N 2 PATRON
+    ElseIf valor = "N5-11-IP-006 WIKAMP" Then           'Certificado P_WIKA MEDIA PRESI√ìN 2 PATRON
                                                         
                             patharch = ThisWorkbook.Path & "\CERTIFICADO N5-11-IP-006.dotx"
                             Set objWord = CreateObject("Word.Application")
@@ -1228,7 +1203,7 @@ ActiveCell.Offset(1, 0).Select
     datos(0, 0) = "*X1"
     datos(1, 0) = ActiveSheet.Cells(FILA, 99) '(fila,columna)   *-*-*
     
-    '''''UBICACI”N
+    '''''UBICACI√ìN
     datos(0, 1) = "*X2"
     datos(1, 1) = UBICACION_ID
     'datos(1, 1) = ActiveSheet.Cells(FILA, 201)'*-*-*
@@ -1257,7 +1232,7 @@ Sheets(P_3).Select
 'End If
 
     'datos(0, 3) = "*X5"
-    'FECHA_C = Application.InputBox("FECHA DE CALIBRACI”N", "FECHA", ActiveSheet.Cells(1, 10))
+    'FECHA_C = Application.InputBox("FECHA DE CALIBRACI√ìN", "FECHA", ActiveSheet.Cells(1, 10))
     datos(0, 3) = "*X4"
     datos(1, 3) = FECHA_C
 
@@ -1266,11 +1241,11 @@ Sheets(P_3).Select
     
 
     
-    'FECHA_GENREACI”N
+    'FECHA_GENREACI√ìN
     datos(0, 4) = "*X5"
     datos(1, 4) = FECHA_GENERACION
     
-    '3 DÕAS HABILES
+    '3 D√çAS HABILES
     'datos(1, 4) = ActiveSheet.Cells(1, 13)
 datos(0, 5) = "*X6"
 datos(1, 5) = ActiveSheet.Cells(3, 4)
@@ -1299,7 +1274,7 @@ datos(1, 16) = ActiveSheet.Cells(2, 10)
 datos(0, 17) = "*Y8"
 datos(1, 17) = ActiveSheet.Cells(FILA, 102)  '*-*-*
 
-''''''''''''''''_____________PATR”N_P1_____________
+''''''''''''''''_____________PATR√ìN_P1_____________
 datos(0, 18) = "*Y9"
 datos(1, 18) = Format(ActiveSheet.Cells(FILA, 102), "0" & DGTOPAT)   '*-*-*
 
@@ -1437,7 +1412,7 @@ objWord.Selection.Find.Execute FindText:=textobuscar
 objWord.Selection.Range.Paste
 Selection.ShapeRange(1).Delete
 
-'///////////////// GR¡FICA
+'///////////////// GR√ÅFICA
 Call GRAFICAR
 ActiveSheet.Shapes("comportamiento").CopyPicture
 textobuscar = "*ZP6"
@@ -1569,7 +1544,7 @@ GoTo FIN
 
 LIMPIAR:
 
-MsgBox "SE DETUVO LA GENERACI”N DE CERTIFICADOS, POSIBLE ERROR"
+MsgBox "SE DETUVO LA GENERACI√ìN DE CERTIFICADOS, POSIBLE ERROR"
 Worksheets(P_3).Protect "MET2025"
 
 Range("GW4:HC20").value = " "
@@ -1585,7 +1560,7 @@ Application.ScreenUpdating = True
 Exit Sub
 
 PLANTILLA:
-MsgBox "PROBLEMA ENCONTRADO CON LAS PLANTILLAS. VERIRICAR QUE EXISTA LA PLANTILLA PARA EL PATR”N: " & valor
+MsgBox "PROBLEMA ENCONTRADO CON LAS PLANTILLAS. VERIRICAR QUE EXISTA LA PLANTILLA PARA EL PATR√ìN: " & valor
 
 Worksheets(P_3).Unprotect "MET2025"
 Columns("GS:HH").Hidden = True
@@ -1622,7 +1597,7 @@ Exit Sub
 End Sub
 
 Sub GRAFICAR()
-'///////////////// GR¡FICA
+'///////////////// GR√ÅFICA
 
 'REFERENCIA
 
@@ -1635,7 +1610,7 @@ Range("GY9").value = "ERROR"
 Range("GZ9").value = "INCERTIDUMBRE"
 
 'FILA=10
-'''''''''''''''RESOLUCI”N GRAFICA
+'''''''''''''''RESOLUCI√ìN GRAFICA
 
 DGTOPAT = FORMULARIO.TXBPATRON.value
 DGTO = FORMULARIO.TXBINSTRUMENTO.value
@@ -1932,7 +1907,7 @@ End If
 
 '//////////////////////////////////// QR
 On Error Resume Next
-Range("GT9").FormulaLocal = "=QRCODE(""ID:" & ID & Chr(10) & "No. Certificado:" & CERTIFICADO & Chr(10) & "Fecha:" & FECHA & Chr(10) & "RealizÛ:" & REALIZA & """)"
+Range("GT9").FormulaLocal = "=QRCODE(""ID:" & ID & Chr(10) & "No. Certificado:" & CERTIFICADO & Chr(10) & "Fecha:" & FECHA & Chr(10) & "Realiz√≥:" & REALIZA & """)"
 
 On Error GoTo 0
 Sheets(P_3).Select
@@ -1953,7 +1928,7 @@ Dim ERROR As Double
 Dim ID As String
 
 
-''''''''''''''''PESTA—AS'''''''''''''''''
+''''''''''''''''PESTA√ëAS'''''''''''''''''
 P_1 = "DATOS"
 P_2 = "MENU"
 P_3 = "CERTIFICADOS"
@@ -2019,7 +1994,7 @@ PUNTOS_GENERALES.WRITE "FECHA,ID,INCERTIDUMBRE,EMP,UNIDADES,DIVISION_MINIMA,PATR
 '' HOJA 3
 
 Set REGISTRO_CERTIFICADOS = FSO.CREATETEXTFILE(RUTA_DATOS & "REGISTRO_CERTIFICADOS\" & FECHA & "_" & FOLIO & ".TXT")
-REGISTRO_CERTIFICADOS.WRITE "ID,FECHA,LIBRO,RUTA,PATRON,FECHA GENERACI”N,USUARIO" & Chr(10)
+REGISTRO_CERTIFICADOS.WRITE "ID,FECHA,LIBRO,RUTA,PATRON,FECHA GENERACI√ìN,USUARIO" & Chr(10)
 
 
 'Set REGISTRO_CERTIFICADOS = FSO.CREATETEXTFILE(RUTA_DATOS & "PUNTOS_GENERALES\" & ID & "_" & FECHA & "_" & FOLIO & ".TXT")
